@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.out</target>
+        <encoder>
+            <!--<pattern>%X{akkaTimestamp} %-5level[%thread] %logger{0} - %msg%n</pattern>-->
+            <pattern>%date{MMM-dd HH:mm:ss, America/Los_Angeles} %-5level[%thread] %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.apache.parquet" level="ERROR">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <logger name="org.apache.spark" level="ERROR">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <logger name="pie.spark" level="WARN">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <logger name="org.apache.hadoop" level="ERROR">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <logger name="com.kirby.icebergdemo" level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <!--    <root level="WARN">-->
+    <!--        <appender-ref ref="CONSOLE"/>-->
+    <!--    </root>-->
+
+</configuration>
