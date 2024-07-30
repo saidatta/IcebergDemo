@@ -3,6 +3,19 @@ package com.kirby.icebergdemo
 import org.apache.spark.internal.Logging
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
+/**
+ * DemoApp is a simple Scala application demonstrating the use of Apache Iceberg with Spark.
+ *
+ * This application performs the following actions:
+ *
+ * 1. Creates an Iceberg table if it doesn't already exist.
+ * 2. Inserts initial data from a CSV file into the Iceberg table.
+ * 3. Checks the raw Parquet files in the Iceberg table.
+ * 4. Performs an upsert operation to update existing records in the Iceberg table.
+ * 5. Demonstrates time travel by querying a specific snapshot version of the table.
+ * 6. Expires old snapshots to manage the size and performance of the Iceberg table.
+ * 7. Rewrites manifests and performs snapshot expiration to optimize the table's metadata.
+ */
 object DemoApp extends Logging {
 
   def main(args: Array[String]): Unit = {
